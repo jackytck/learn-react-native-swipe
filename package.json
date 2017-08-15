@@ -14,7 +14,8 @@
     "eslint-plugin-standard": "^3.0.1",
     "expo": "^15.0.2",
     "react": "~15.4.0",
-    "react-native": "https://github.com/exponent/react-native/archive/sdk-15.0.0.tar.gz"
+    "react-native": "https://github.com/exponent/react-native/archive/sdk-15.0.0.tar.gz",
+    "react-native-elements": "^0.16.0"
   },
   "devDependencies": {
     "eslint-plugin-import": "^2.7.0",
