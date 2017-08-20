@@ -1,9 +1,12 @@
 import React, { Component } from 'react'
 import {
   Animated,
+  Dimensions,
   PanResponder,
   View
 } from 'react-native'
+
+const SCREEN_WIDTH = Dimensions.get('window').width
 
 class Deck extends Component {
   constructor (props) {
@@ -18,17 +21,25 @@ class Deck extends Component {
           y: gesture.dy
         })
       },
-      onPanResponderRelease: () => {}
+      onPanResponderRelease: () => {
+        this.resetPosition()
+      }
     })
 
     this.state = { panResponder, position }
   }
 
+  resetPosition () {
+    Animated.spring(this.state.position, {
+      toValue: { x: 0, y: 0 }
+    }).start()
+  }
+
   getCardStyle () {
     const { position } = this.state
     const rotate = position.x.interpolate({
-      inputRange: [-500, 0, 500],
-      outputRange: ['-120deg', '0deg', '120deg']
+      inputRange: [-SCREEN_WIDTH, 0, SCREEN_WIDTH],
+      outputRange: ['-30deg', '0deg', '30deg']
     })
 
     return {
