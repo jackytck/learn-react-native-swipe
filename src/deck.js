@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import PropTypes from 'prop-types'
 import {
   Animated,
   Dimensions,
@@ -72,6 +73,11 @@ class Deck extends Component {
       </View>
     )
   }
+}
+
+Deck.propTypes = {
+  data: PropTypes.array,
+  renderCard: PropTypes.func
 }
 
 export default Deck
