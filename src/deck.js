@@ -81,6 +81,9 @@ class Deck extends Component {
 
   renderCards () {
     const { index } = this.state
+    if (index >= this.props.data.length) {
+      return this.props.renderNoMoreCards()
+    }
     return this.props.data.map((item, i) => {
       if (i < index) {
         return
@@ -113,7 +116,8 @@ Deck.propTypes = {
   data: PropTypes.array,
   renderCard: PropTypes.func,
   onSwipeLeft: PropTypes.func,
-  onSwipeRight: PropTypes.func
+  onSwipeRight: PropTypes.func,
+  renderNoMoreCards: PropTypes.func
 }
 
 export default Deck
