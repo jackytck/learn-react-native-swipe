@@ -3,7 +3,9 @@ import PropTypes from 'prop-types'
 import {
   Animated,
   Dimensions,
+  LayoutAnimation,
   PanResponder,
+  UIManager,
   View
 } from 'react-native'
 
@@ -41,6 +43,12 @@ class Deck extends Component {
     })
 
     this.state = { panResponder, position, index: 0 }
+  }
+
+  componentWillUpdate () {
+    const exp = UIManager.setLayoutAnimationEnabledExperimental
+    exp && exp(true)
+    LayoutAnimation.spring()
   }
 
   forceSwipe (direction) {
